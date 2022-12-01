@@ -1,24 +1,22 @@
 #!/usr/bin/env python
-"""cookiecutter distutils configuration."""
+"""aoc distutils configuration."""
 from setuptools import setup
 
-version = "2.0.0"
+version = "0.0.0"
 
 with open('README.md', encoding='utf-8') as readme_file:
     readme = readme_file.read()
 
 requirements = [
     'binaryornot>=0.4.4',
-    'Jinja2>=2.7,<4.0.0',
     'click>=7.0,<8.0.0',
     'pyyaml>=5.3.1',
-    'jinja2-time>=0.2.0',
     'python-slugify>=4.0.0',
     'requests>=2.23.0',
 ]
 
 setup(
-    name='cookiecutter',
+    name='aoc_2022',
     version=version,
     description=(
         'A command-line utility that creates projects from project '
@@ -27,12 +25,12 @@ setup(
     ),
     long_description=readme,
     long_description_content_type='text/markdown',
-    author='Audrey Feldroy',
-    author_email='audreyr@gmail.com',
-    url='https://github.com/cookiecutter/cookiecutter',
-    packages=['cookiecutter'],
-    package_dir={'cookiecutter': 'cookiecutter'},
-    entry_points={'console_scripts': ['cookiecutter = cookiecutter.__main__:main']},
+    author='Josh Fitzpatrick',
+    author_email='jtfitzpa@umich.edu',
+    url='https://github.com/jtfitzpa/aoc_2022',
+    packages=['aoc_2022'],
+    package_dir={'aoc_2022': 'aoc_2022'},
+    entry_points={'console_scripts': []},
     include_package_data=True,
     python_requires='>=3.6',
     install_requires=requirements,
@@ -55,16 +53,5 @@ setup(
         "Programming Language :: Python",
         "Topic :: Software Development",
     ],
-    keywords=[
-        "cookiecutter",
-        "Python",
-        "projects",
-        "project templates",
-        "Jinja2",
-        "skeleton",
-        "scaffolding",
-        "project directory",
-        "package",
-        "packaging",
-    ],
+    keywords=[],
 )
