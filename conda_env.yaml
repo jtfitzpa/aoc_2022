@@ -1,0 +1,9 @@
+name: aoc22
+
+dependencies:
+  - ipython
+  - matplotlib
+  - pandas
+  - pip
+  - python
+  - scikit-learn
