@@ -15,6 +15,7 @@ def read_file(input):
 
     return cleaned_input
 
+
 def group_items(input):
     totals = [0]
     for item in input:
@@ -25,10 +26,10 @@ def group_items(input):
 
     return totals
 
+
 def main():
 
-    test_data = \
-"""1000
+    test_data = """1000
 2000
 3000
 
@@ -48,8 +49,6 @@ def main():
 
     print(f'Test Answer - Part 1: {max(max_food)}')
     print(f'Test Answer - Part 2: {sum(max_food[-3:])}')
-
-
 
     data = get_data(day=1, year=2022)
     input = read_file(data)

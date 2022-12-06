@@ -1,20 +1,16 @@
 # AOC 2022 Day 6
 from aocd import get_data
 
+
 def format_input(input_str):
     return input_str.strip('\n')
 
+
 def part1(input, sync_len=4):
     for i in range(sync_len, len(input)):
-        if len(set(input[i-sync_len:i])) == sync_len:
+        if len(set(input[i - sync_len : i])) == sync_len:
             return i
     return len(input)
-
-        
-def part2(input):
-
-    pass
-
 
 
 def main():
@@ -45,14 +41,14 @@ def main():
     assert marker == 10, marker
     marker = part1(data_stream, sync_len=14)
     assert marker == 29, marker
-    
+
     test_data5 = "zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"
     data_stream = format_input(test_data5)
     marker = part1(data_stream, sync_len=4)
     assert marker == 11, marker
     marker = part1(data_stream, sync_len=14)
     assert marker == 26, marker
-    
+
     data = get_data(day=6, year=2022)
     data_stream = format_input(data)
     marker = part1(data_stream, sync_len=4)

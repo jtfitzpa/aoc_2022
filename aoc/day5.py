@@ -2,14 +2,14 @@
 from aocd import get_data
 from collections import defaultdict
 
+
 def format_input(input_str):
     lines = input_str.split('\n')
     split_idx = lines.index('')
-    return lines[:split_idx], lines[split_idx+1:]
+    return lines[:split_idx], lines[split_idx + 1 :]
 
 
 def clean_stacks(stacks):
-
 
     all_lines = []
     for line in stacks:
@@ -31,7 +31,7 @@ def create_stacks(inputs):
     stack_ids = [int(i) for i in inputs[-1].split(' ') if i]
 
     stack_lines = clean_stacks(inputs[-2::-1])
-    
+
     stacks = defaultdict(list)
     for line in stack_lines:
         cols = line
@@ -39,8 +39,9 @@ def create_stacks(inputs):
             if cols[i]:
                 _, val, _ = col
                 stacks[stack_ids[i]].append(val.strip('[').strip(']'))
-            
+
     return stacks
+
 
 def parse_instructions(inputs):
     instructions = []
@@ -58,6 +59,7 @@ def get_common_items(*args):
         total &= set(arg)
     return list(total)
 
+
 def part1(stack, instructions):
 
     stacks = create_stacks(stack)
@@ -67,13 +69,14 @@ def part1(stack, instructions):
         (count, start, stop) = instruction
         for _ in range(count):
             stacks[stop].append(stacks[start].pop())
-    
+
     letters = ''
     for stack in stacks.values():
         if len(stack):
             letters += stack.pop()
     return letters
-        
+
+
 def part2(stack, instructions):
 
     stacks = create_stacks(stack)
@@ -85,19 +88,17 @@ def part2(stack, instructions):
         for _ in range(count):
             new_stack.insert(0, stacks[start].pop())
         stacks[stop].extend(new_stack)
-    
+
     letters = ''
     for stack in stacks.values():
         if len(stack):
             letters += stack.pop()
     return letters
-        
 
 
 def main():
 
-    test_data = \
-"""    [D] 
+    test_data = """    [D] 
 [N] [C]
 [Z] [M] [P]
  1 2 3  
